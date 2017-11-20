@@ -60,7 +60,8 @@ var updateState = function(e) {
 }
 
 router = function(state) {
-    var curentRoute = routes[state.page] || '/';
+    state = state || '/';
+    var curentRoute = routes[state.page];
 
     document.title = curentRoute.title;
     contentEl.innerHTML = curentRoute.content || 'Error 404. Page not found';
