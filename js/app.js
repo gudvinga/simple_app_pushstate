@@ -56,12 +56,11 @@ var updateState = function(e) {
         page: e.target.getAttribute('href')
     };
     history.pushState(state, '', state.page);
-    router();
+    router(state);
 }
 
-router = function() {
-    let path = window.location.pathname.slice(1) || '/',
-        curentRoute = routes[path];
+router = function(state) {
+    var curentRoute = routes[state.page];
 
     document.title = curentRoute.title;
     contentEl.innerHTML = curentRoute.content || 'Error 404. Page not found';
