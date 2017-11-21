@@ -60,7 +60,7 @@ var updateState = function(e) {
 }
 
 router = function(state) {
-    state = state || '/';
+    state.page = state.page || '/';
     var curentRoute = routes[state.page];
 
     document.title = curentRoute.title;
